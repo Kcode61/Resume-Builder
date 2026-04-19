@@ -1,20 +1,31 @@
+"use client";
+import { Plus, Trash } from "lucide-react";
+import { useState } from "react";
+import { Apresentação } from "../Apresentação";
+import { Contato } from "../Contato";
+import { Experiencia } from "../Experiencia";
+import { Educação } from "../Educação";
+
 export function Editor() {
   return (
-    <div className="p-6 border-r  w-full flex flex-col border-[#ECEAE9] overflow-y-auto max-h-full">
-      <div className="max-w-7xl">
-        <div className=" mb-8 flex flex-col gap-[2px]">
-          <p className="text-[11px] font-inter font-medium text-[#7C706A]">
-            EDITOR
-          </p>
-          <h2 className="text-2xl  font-weight  font-fraunces ">
-            Construa seu currículo
-          </h2>
-        </div>
+    <div className="flex-1 min-h-0 border-r overflow-y-auto w-full mx-auto  flex flex-col border-[#ECEAE9]">
+      <div className="p-6   pb-20 max-w-6xl w-full mx-auto">
+        <div>
+          <div className=" mb-8 flex flex-col gap-[2px]">
+            <p className="text-[11px] font-inter font-medium text-[#7C706A]">
+              EDITOR
+            </p>
+            <h2 className="text-2xl  font-weight  font-fraunces ">
+              Construa seu currículo
+            </h2>
+          </div>
 
-        <div className="flex gap-2 mb-2">
-          <p className="flex text-xs  font-medium items-center justify-center w-7 h-7 rounded-full text-white font-brains bg-[#1D1816]">
-            1
-          </p>
+          <div className="max-w-[620px]">
+            <Apresentação />
+            <Contato />
+            <Experiencia />
+            <Educação />
+          </div>
         </div>
       </div>
     </div>

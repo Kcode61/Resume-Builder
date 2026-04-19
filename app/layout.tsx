@@ -30,9 +30,12 @@ export default function RootLayout({
           ${jetbrainsMono.variable}h-full antialiased`}
       cz-shortcut-listen="true"
     >
-      <body className="min-h-full flex flex-col">
+      <body
+        cz-shortcut-listen="true"
+        className="h-screen flex flex-col overflow-hidden"
+      >
         <Header />
-        {children}
+        <main className="flex-1 overflow-hidden min-h-0 ">{children}</main>
       </body>
     </html>
   );
