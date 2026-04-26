@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gerador de Currículo
 
-## Getting Started
+Aplicação web para criação de currículos com prévia em tempo real e exportação para PDF.
+A proposta é oferecer uma interface simples e direta para montar currículos de forma rápida e organizada.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Acesso online
+
+Você pode acessar a aplicação diretamente pelo navegador:
+
+```
+em breve
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Edição completa das informações do currículo
+* Prévia em tempo real
+* Exportação para PDF
+* Interface minimalista
+* Atualização instantânea dos dados
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Tecnologias utilizadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Next.js
+* React
+* TypeScript
+* Zustand
+* Tailwind CSS
+* html2canvas
+* jsPDF
+* Lucide Icons
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Estrutura do projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+ ├── components/
+ │    ├── Editor/
+ │    ├── Curriculo/
+ │    ├── Apresentação/
+ │    ├── Contato/
+ │    ├── Experiencia/
+ │    ├── Educação/
+ │    └── Habilidades/
+ │
+ ├── store/
+ │    ├── useApresentacaoStore.ts
+ │    ├── useContatoStore.ts
+ │    ├── useExperienciaStore.ts
+ │    ├── useEducaçãoStore.ts
+ │    └── useHabilidadesStore.ts
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Como rodar o projeto
+
+```bash
+npm install
+npm run dev
+```
+
+Acesse em:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Exportação de PDF
+
+A geração do PDF é feita no lado do cliente utilizando:
+
+* html2canvas para capturar o layout
+* jsPDF para gerar o arquivo final
+
+---
+
+## Gerenciamento de estado
+
+O projeto utiliza Zustand com stores separadas por domínio:
+
+* Apresentação
+* Contato
+* Experiência
+* Educação
+* Habilidades
+
+Essa divisão facilita manutenção e escalabilidade.
+
+---
+
+## Possíveis melhorias
+
+* Suporte a múltiplos templates
+* Upload de foto
+* Persistência de dados (localStorage)
+* Exportação em outros formatos
+
+---
+
+## Status
+
+Em desenvolvimento
+
+---
+
+## Autor
+
+Desenvolvido por você
