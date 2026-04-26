@@ -4,6 +4,11 @@ import "./globals.css";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { useApresentacaoStore } from "@/store/useApresentacaoStore";
+import { useContatoStore } from "@/store/useContatoStore";
+import { useEducaçãoStore } from "@/store/useEducaçãoStore";
+import { useExperienciaStore } from "@/store/useExperienciaStore";
+import { useHabilidadesStore } from "@/store/useHabilidadesStore";
 
 export const fraunces = Fraunces({
   subsets: ["latin"],
@@ -25,6 +30,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { limparApresetacao } = useApresentacaoStore();
+  const { limparContato } = useContatoStore();
+  const { limparEducação } = useEducaçãoStore();
+  const { limparExperiencias } = useExperienciaStore();
+  const { limparHabilidades } = useHabilidadesStore();
   const exportarPDF = async () => {
     const element = document.getElementById("curriculo");
 
@@ -50,6 +60,13 @@ export default function RootLayout({
     pdf.save("curriculo.pdf");
   };
 
+  function limparpdf() {
+    limparApresetacao();
+    limparContato();
+    limparEducação();
+    limparExperiencias();
+    limparHabilidades();
+  }
   return (
     <html
       lang="pt-br"
@@ -62,7 +79,7 @@ export default function RootLayout({
         cz-shortcut-listen="true"
         className="h-screen flex flex-col overflow-hidden"
       >
-        <Header exportarPdf={exportarPDF} />
+        <Header LimparPDF={limparpdf} exportarPdf={exportarPDF} />
         <main className="flex-1 overflow-hidden min-h-0 ">{children}</main>
       </body>
     </html>

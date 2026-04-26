@@ -10,6 +10,7 @@ type ContatoState = {
   setTelefone: (telefone: string) => void;
   setEmail: (email: string) => void;
   setLinkedin: (linkedin: string) => void;
+  limparContato: () => void;
 };
 
 export const useContatoStore = create<ContatoState>((set) => ({
@@ -17,7 +18,13 @@ export const useContatoStore = create<ContatoState>((set) => ({
   telefone: "",
   email: "",
   linkedin: "",
-
+  limparContato: () =>
+    set({
+      localizacao: "",
+      telefone: "",
+      email: "",
+      linkedin: "",
+    }),
   setLocalizacao: (localizacao) => set({ localizacao }),
   setTelefone: (telefone) => set({ telefone }),
   setEmail: (email) => set({ email }),

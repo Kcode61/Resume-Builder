@@ -1,6 +1,10 @@
 import { Download, FileText, RotateCcw } from "lucide-react";
-
-export function Header({ exportarPdf }: { exportarPdf: () => void }) {
+type HeaderProps = {
+  exportarPdf: () => void;
+  LimparPDF: () => void;
+};
+type props = HeaderProps;
+export function Header({ exportarPdf, LimparPDF }: props) {
   return (
     <header className="flex justify-between items-center bg-white border-b border-[#ECEAE9] p-4">
       <div className="flex gap-2 items-center">
@@ -18,7 +22,10 @@ export function Header({ exportarPdf }: { exportarPdf: () => void }) {
       </div>
 
       <div className="flex gap-2 items-center">
-        <button className="py-2 px-4 rounded-lg flex gap-4 font-medium cursor-pointer hover:scale-95 hover:gap-3 ease duration-500 text-xs hover:text-white items-center font-inter text-[#A19995] hover:bg-orange-400 transition-all">
+        <button
+          onClick={LimparPDF}
+          className="py-2 px-4 rounded-lg flex gap-4 font-medium cursor-pointer hover:scale-95 hover:gap-3 ease duration-500 text-xs hover:text-white items-center font-inter text-[#A19995] hover:bg-orange-400 transition-all"
+        >
           <RotateCcw size={16} />
           Limpar
         </button>

@@ -14,6 +14,7 @@ type Store = {
   adicionar: () => void;
   remover: (index: number) => void;
   atualizar: (index: number, campo: keyof Experiencia, valor: string) => void;
+  limparExperiencias: () => void;
 };
 
 export const useExperienciaStore = create<Store>((set) => ({
@@ -37,7 +38,7 @@ export const useExperienciaStore = create<Store>((set) => ({
     set((state) => ({
       experiencias: state.experiencias.filter((_, i) => i !== index),
     })),
-
+  limparExperiencias: () => set({ experiencias: [] }),
   atualizar: (index, campo, valor) =>
     set((state) => ({
       experiencias: state.experiencias.map((exp, i) =>

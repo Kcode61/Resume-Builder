@@ -17,6 +17,7 @@ type Store = {
     campo: keyof Educação,
     valor: string,
   ) => void;
+  limparEducação: () => void;
 };
 
 export const useEducaçãoStore = create<Store>((set) => ({
@@ -34,6 +35,7 @@ export const useEducaçãoStore = create<Store>((set) => ({
         },
       ],
     })),
+  limparEducação: () => set({ Educações: [] }),
 
   removerEducação: (index) =>
     set((state) => ({

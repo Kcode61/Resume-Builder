@@ -8,7 +8,7 @@ type Habilidade = {
 
 type Store = {
   habilidades: Habilidade[];
-
+  limparHabilidades: () => void;
   adicionar: () => void;
   remover: (index: number) => void;
   atualizar: (index: number, campo: keyof Habilidade, valor: string) => void;
@@ -16,6 +16,7 @@ type Store = {
 
 export const useHabilidadesStore = create<Store>((set) => ({
   habilidades: [],
+  limparHabilidades: () => set({ habilidades: [] }),
 
   adicionar: () =>
     set((state) => ({
