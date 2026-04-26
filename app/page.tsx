@@ -8,9 +8,8 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   return (
-    <div className="flex w-full h-screen overflow-hidden">
+    <div className="flex flex-col md:flex-row w-full h-screen overflow-hidden">
       <Editor />
-
       <Curriculo />
     </div>
   );

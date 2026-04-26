@@ -8,7 +8,7 @@ export function Header({ exportarPdf, LimparPDF }: props) {
   return (
     <header className="flex justify-between items-center bg-white border-b border-[#ECEAE9] p-4">
       <div className="flex gap-2 items-center">
-        <div className="w-8 h-8 rounded-lg bg-[#1D1816] text-white flex items-center justify-center ">
+        <div className="w-8 h-8 hidden rounded-lg bg-[#1D1816] text-white md:flex items-center justify-center ">
           <FileText size={18} />
         </div>
         <div className="flex flex-col">
