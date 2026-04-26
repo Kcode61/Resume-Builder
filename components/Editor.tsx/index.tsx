@@ -5,6 +5,7 @@ import { Apresentação } from "../Apresentação";
 import { Contato } from "../Contato";
 import { Experiencia } from "../Experiencia";
 import { Educação } from "../Educação";
+import { Habilidades } from "../Habilidades";
 
 export function Editor() {
   return (
@@ -25,6 +26,7 @@ export function Editor() {
             <Contato />
             <Experiencia />
             <Educação />
+            <Habilidades />
           </div>
         </div>
       </div>

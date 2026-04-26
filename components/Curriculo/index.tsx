@@ -3,23 +3,30 @@ import { useApresentacaoStore } from "@/store/useApresentacaoStore";
 import { useContatoStore } from "@/store/useContatoStore";
 import { useEducaçãoStore } from "@/store/useEducaçãoStore";
 import { useExperienciaStore } from "@/store/useExperienciaStore";
+import { useHabilidadesStore } from "@/store/useHabilidadesStore";
 import { Mail, MapPin, Phone, User } from "lucide-react";
+import { useRef } from "react";
 
 export function Curriculo() {
+  const curriculoRef = useRef(null);
   const { nome, titulo, sobre } = useApresentacaoStore();
   const { email, telefone, linkedin, localizacao } = useContatoStore();
   const { Educações } = useEducaçãoStore();
   const { experiencias } = useExperienciaStore();
+  const { habilidades } = useHabilidadesStore();
   return (
     <div className="flex-1 bg-[#F7F6F4] min-h-0  overflow-y-auto w-full mx-auto  flex flex-col ">
-      <div className="p-6 pb-20 max-w-6xl w-full mx-auto">
+      <div className="py-3 pb-20 w-full mx-auto">
         <div className="p-4 border-b bg-[#FAF8F7] border-[#ECEAE7] flex justify-between items-center">
           <h2 className=" uppercase text-[11px] font-inter font-medium text-[#7C706A]">
             Prévia em tempo real
           </h2>
         </div>
-
-        <div className="flex max-w-3xl mx-auto bg-white flex-col gap-2 p-[56px]">
+        <div
+          ref={curriculoRef}
+          id="curriculo"
+          className="flex max-w-3xl mx-auto bg-white flex-col gap-2 p-[56px]"
+        >
           <h1 className="font-fraunces text-3xl text-black font-bold">
             {nome}
           </h1>
@@ -30,21 +37,21 @@ export function Curriculo() {
           </p>
           <div className="flex gap-4 items-center">
             <div
-              className={`flex gap-2 text-[#444444] items-center text-sm font-inter ${email ? "block" : "hidden"}`}
+              className={`flex gap-2 text-[#444444]  items-center leading-none  text-sm font-inter ${email ? "block" : "hidden"}`}
             >
-              <Mail size={13} className="align-middle" />
+              <Mail size={13} className="relative top-[0.5px]" />
               <p className="text-[11px] font-inter">{email}</p>
             </div>
             <div
-              className={`flex gap-2 text-[#444444] items-center text-sm font-inter ${telefone ? "block" : "hidden"}`}
+              className={`flex gap-2 text-[#444444]  items-center leading-none  text-sm font-inter ${telefone ? "block" : "hidden"}`}
             >
-              <Phone size={13} className="align-middle" />
+              <Phone size={13} className="relative top-[0.5px]" />
               <p className="text-[11px] font-inter">{telefone}</p>
             </div>
             <div
-              className={`flex gap-2 text-[#444444] items-center text-sm font-inter ${linkedin ? "block" : "hidden"}`}
+              className={`flex gap-2 text-[#444444]  items-center leading-none  text-sm font-inter ${linkedin ? "block" : "hidden"}`}
             >
-              <User size={13} className="align-middle" />
+              <User size={13} className="relative top-[0.5px]" />
 
               <a
                 href={linkedin}
@@ -58,7 +65,7 @@ export function Curriculo() {
             <div
               className={`flex gap-2 text-[#444444] items-center text-sm font-inter ${localizacao ? "block" : "hidden"}`}
             >
-              <MapPin size={13} className="align-middle" />
+              <MapPin size={13} className="relative top-[0.5px]" />
 
               <p className="text-[11px] font-inter">{localizacao}</p>
             </div>
@@ -124,6 +131,27 @@ export function Curriculo() {
                 </p>
               </div>
             ))}
+          </div>
+          <div
+            className={`flex-col mb-4 gap-2 ${
+              habilidades.length > 0 ? "flex" : "hidden"
+            }`}
+          >
+            <p className="tracking-[0.2em] uppercase text-[11px] font-inter font-medium text-[#7C706A]">
+              Habilidades
+            </p>
+
+            <div className="grid grid-cols-3 gap-x-4 gap-y-1">
+              {habilidades.map((hab) => (
+                <div
+                  key={hab.key}
+                  className="text-[11px] font-inter text-[#333]"
+                >
+                  <span className="font-medium">{hab.nome}</span>
+                  {hab.ano && <span className="text-[#777]"> {hab.ano}</span>}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
