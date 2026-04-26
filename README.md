@@ -10,7 +10,7 @@ A proposta é oferecer uma interface simples e direta para montar currículos de
 Você pode acessar a aplicação diretamente pelo navegador:
 
 ```
-em breve
+https://resume-builder-jep.pages.dev
 ```
 
 ---
@@ -41,8 +41,8 @@ em breve
 ## Estrutura do projeto
 
 ```
-src/
- ├── components/
+
+components/
  │    ├── Editor/
  │    ├── Curriculo/
  │    ├── Apresentação/
